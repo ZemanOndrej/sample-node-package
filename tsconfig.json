@@ -8,7 +8,8 @@
 		"strict": true,
 		"types": ["node", "mocha"],
 		"resolveJsonModule": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"declaration": true
 	},
-	"exclude": ["node_modules", "test"]
+	"exclude": ["node_modules", "test", "bin"]
 }

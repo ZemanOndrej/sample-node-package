@@ -1,19 +1,21 @@
 {
-	"name": "adacta",
-	"version": "1.0.0",
+	"name": "demo-simple-npm-typescript-package-nodejs",
+	"version": "1.0.4",
 	"description": "simple typescript package",
 	"main": "./src/index.ts",
 	"scripts": {
 		"test": "./node_modules/.bin/mocha --require ts-node/register --watch-extensions ts,tsx  ./test/*.spec.ts --reporter mochawesome --require mochawesome/register",
-		"build": "tsc -p .",
-		"run": " npm run cleanup && npm run build && node ./bin/index.js",
-		"cleanup": "rimraf ./bin"
+		"build": "npm run cleanup && tsc -p .",
+		"run": "npm run build && node ./bin/index.js",
+		"cleanup": "rimraf ./bin ./mochawesome-report ./processed.json",
+		"buildNpublish": "npm run build && cpx README.md bin && cpx package.json bin && cd bin && npm publish"
 	},
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
 		"@types/mocha": "^8.2.1",
 		"@types/node": "^14.14.31",
+		"cpx": "^1.5.0",
 		"mocha": "^8.3.0",
 		"mochawesome": "^6.2.2",
 		"rimraf": "^3.0.2",
